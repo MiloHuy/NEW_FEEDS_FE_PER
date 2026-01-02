@@ -1,0 +1,54 @@
+:root {
+  /* Base */
+  --color-bg: 15 15 15;
+  --color-text: 255 255 255;
+  --color-muted: 144 144 144;
+
+  /* Primary */
+  --color-primary-50: 223 228 255;
+  --color-primary-100: 173 186 255;
+  --color-primary-200: 128 148 255;
+  --color-primary-300: 55 87 255;
+  --color-primary-400: 0 41 255;
+  --color-primary-500: 0 34 215;
+
+  /* Secondary */
+  --color-secondary-50: 255 233 201;
+  --color-secondary-100: 255 209 140;
+  --color-secondary-200: 255 187 85;
+  --color-secondary-300: 255 175 54;
+  --color-secondary-400: 255 153 0;
+  --color-secondary-500: 217 130 0;
+
+  /* Success */
+  --color-success-50: 192 253 227;
+  --color-success-100: 115 239 187;
+  --color-success-200: 75 225 162;
+  --color-success-300: 48 223 150;
+  --color-success-400: 0 206 120;
+  --color-success-500: 0 181 105;
+
+  /* Warning */
+  --color-warning-50: 244 214 198;
+  --color-warning-100: 248 180 142;
+  --color-warning-200: 243 132 70;
+  --color-warning-300: 240 118 49;
+  --color-warning-400: 225 81 0;
+  --color-warning-500: 202 73 0;
+
+  /* Error */
+  --color-error-50: 244 194 206;
+  --color-error-100: 238 139 163;
+  --color-error-200: 238 139 163;
+  --color-error-300: 240 84 122;
+  --color-error-400: 220 44 86;
+  --color-error-500: 177 17 56;
+
+  /* Neutral */
+  --color-neutral-50: 239 242 255;
+  --color-neutral-100: 221 226 253;
+  --color-neutral-200: 200 208 250;
+  --color-neutral-300: 155 167 232;
+  --color-neutral-400: 119 129 181;
+  --color-neutral-500: 0 11 67;
+}

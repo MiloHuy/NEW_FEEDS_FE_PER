@@ -1,0 +1,11 @@
+@use '../abstracts/typography' as *;
+@use '../abstracts/colors' as *;
+
+@layer base {
+  body {
+    margin: 0;
+    font-family: $font-sans;
+    background-color: rgb(var(--color-bg));
+    color: rgb(var(--color-text));
+  }
+}

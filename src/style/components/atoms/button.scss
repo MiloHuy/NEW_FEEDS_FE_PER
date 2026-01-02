@@ -1,0 +1,21 @@
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium;
+
+    &-primary {
+      @apply bg-primary-400 text-text hover:bg-primary-500;
+    }
+
+    &-secondary {
+      @apply bg-secondary-400 text-text hover:bg-secondary-500;
+    }
+
+    &-success {
+      @apply bg-success-400 text-text hover:bg-success-500;
+    }
+
+    &-error {
+      @apply bg-error-400 text-text hover:bg-error-500;
+    }
+  }
+}

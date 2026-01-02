@@ -1,11 +1,13 @@
-
 import './App.css'
+import Button from './atoms/button'
 
 function App() {
-
-
   return (
-    <div>hi</div>
+    <div>
+      <Button variant="primary" color="success">
+        Primary Success Button
+      </Button>
+    </div>
   )
 }
 

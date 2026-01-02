@@ -1,8 +1,12 @@
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
+@import './style/base/_reset.scss';
+@import './style/base/_global.scss';
+@import './style/themes/_themes.scss';
+@import './style/abstracts/_colors.scss';
+
+@import './style/components/atoms/button.scss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 
