@@ -4,6 +4,8 @@ interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'success'
   color?: 'default' | 'success' | 'warning' | 'error'
+
+  iconOnly?: boolean
 }
 
 const VARIANT_CLASS = {
@@ -25,6 +27,7 @@ const Button: React.FC<IButtonProps> = ({
   color = 'default',
   className,
   children,
+  iconOnly = false,
   ...rest
 }) => {
   const classes = [
@@ -42,7 +45,9 @@ const Button: React.FC<IButtonProps> = ({
       className: classes,
       ...rest,
     },
-    children
+    <>
+    {!iconOnly && children}
+    </> 
   )
 }
 

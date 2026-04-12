@@ -4,6 +4,8 @@
 @import './style/abstracts/_colors.scss';
 
 @import './style/components/atoms/button.scss';
+@import './style/components/atoms/input.scss';
+@import './style/components/atoms/badge.scss';
 
 @tailwind base;
 @tailwind components;

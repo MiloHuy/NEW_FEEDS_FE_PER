@@ -1,0 +1,42 @@
+@layer components {
+  .badge {
+    @apply inline-flex items-center justify-center rounded-full border px-2 py-0.5 text-xs font-medium;
+
+    &-default {
+      @apply bg-primary-400 text-primary-50 border-transparent;
+    }
+
+    &-secondary {
+      @apply bg-secondary-400 text-secondary-50 border-transparent;
+    }
+
+    &-destructive {
+      @apply bg-slate-300 text-white border-transparent;
+    }
+
+    &-warning {
+      @apply bg-warning-300 text-warning-50 border-transparent;
+    }
+
+    &-success {
+      @apply bg-success-300 text-success-50 border-transparent;
+    }
+
+    &-outline {
+      @apply text-text bg-transparent border-text;
+    }
+
+    /* ===== SIZES ===== */
+    &-sm {
+      @apply px-2 py-0.5 text-xs;
+    }
+
+    &-md {
+      @apply px-3 py-1 text-sm;
+    }
+
+    &-lg {
+      @apply px-4 py-1.5 text-base;
+    }
+  }
+}

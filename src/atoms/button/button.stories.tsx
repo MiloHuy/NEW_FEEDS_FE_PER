@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import Button from "./Button";
+import { Home } from "@quanghuy/ytb-icon-library";
 
 const meta : Meta = {
   title: 'Components/Button',  
@@ -25,6 +26,15 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
     children: 'Secondary Button',
+    color: "default"  
+  },
+};
+
+export const IconOnly: Story = {
+  args: {
+
+    iconOnly: true,
+    children: <Home /> ,
     color: "default"  
   },
 };

@@ -1,0 +1,107 @@
+@layer components {
+  .input {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &__label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      font-weight: 500;
+      color: theme('colors.text');
+    }
+
+    &__secondary {
+      font-size: 12px;
+      color: theme('colors.muted');
+    }
+
+    &__wrapper {
+      @apply flex items-center gap-2 rounded-md border px-3 py-2 transition bg-bg;
+
+      border-color: theme('colors.neutral.200');
+
+      &:focus-within {
+        border-color: theme('colors.primary.400');
+      }
+    }
+
+    &__field {
+      @apply flex-1 bg-transparent outline-none text-sm;
+
+      color: theme('colors.text');
+
+      &::placeholder {
+        color: theme('colors.muted');
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
+    }
+
+    &__icon {
+      color: theme('colors.muted');
+      display: flex;
+      align-items: center;
+    }
+
+    &__helper {
+      font-size: 12px;
+      color: theme('colors.muted');
+    }
+
+    /* ===== STATES ===== */
+
+    &--error {
+      .input__wrapper {
+        border-color: theme('colors.error.400');
+
+        &:focus-within {
+          border-color: theme('colors.error.500');
+        }
+      }
+
+      .input__helper {
+        color: theme('colors.error.400');
+      }
+    }
+
+    &--warning {
+      .input__wrapper {
+        border-color: theme('colors.warning.400');
+
+        &:focus-within {
+          border-color: theme('colors.warning.500');
+        }
+      }
+
+      .input__helper {
+        color: theme('colors.warning.400');
+      }
+    }
+
+    &--success {
+      .input__wrapper {
+        border-color: theme('colors.success.400');
+
+        &:focus-within {
+          border-color: theme('colors.success.500');
+        }
+      }
+
+      .input__helper {
+        color: theme('colors.success.400');
+      }
+    }
+
+    &--disabled {
+      .input__wrapper {
+        background-color: theme('colors.neutral.50');
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+  }
+}
