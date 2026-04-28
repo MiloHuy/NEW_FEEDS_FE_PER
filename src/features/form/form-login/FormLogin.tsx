@@ -7,18 +7,17 @@ import { schemaFormLogin } from "./schema";
 import { getLottieUrl } from "../../../assets/utils";
 import LottiePlayer from "../../../atoms/lottie-player/LottiePlayer";
 
-export default function LoginPage() {
+const FormLogin= ()=> {
   const { register, handleSubmit, getError } = useYupForm({
     schema: schemaFormLogin,
     onSubmit: (values) => {
-      console.log("Values: ", values)
       loginSvcCaller.execute(values)
     }
   });
 
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <LottiePlayer src={getLottieUrl("newFeed")} loop style={{ width: 200, height: 200 }} />
+    <div className="flex items-center justify-center">
+      <LottiePlayer src={getLottieUrl("newFeed")} loop width={300} height={300} />
 
       <div className="w-full max-w-sm border rounded-xl p-8">
         
@@ -26,8 +25,8 @@ export default function LoginPage() {
         <Typography as="p">Sign in to continue</Typography>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          <Input {...register("email")} placeholder="you@example.com" />
-          {getError("email") && <p>{getError("email")}</p>}
+          <Input {...register("username")} placeholder="Username" />
+          {getError("username") && <p>{getError("username")}</p>}
 
           <Input {...register("password")} type="password" placeholder="••••••••" />
           {getError("password") && <p>{getError("password")}</p>}
@@ -46,3 +45,5 @@ export default function LoginPage() {
     </div>
   );
 }
+
+export default FormLogin

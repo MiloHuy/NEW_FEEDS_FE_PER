@@ -2,6 +2,8 @@ import FormLogin from "../../features/form/form-login/FormLogin";
 
 export default function LoginPage() {
   return (
-    <FormLogin />
+    <div className="flex items-center justify-center h-screen">
+      <FormLogin />
+    </div>
   )
 }

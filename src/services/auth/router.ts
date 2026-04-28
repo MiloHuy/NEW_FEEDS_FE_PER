@@ -1,9 +1,9 @@
 export const API_AUTH_ROUTERS = {
   GET: {
-    ME: "/auth/me",
+    ME: "auth/me",
   },
   POST: {
-    LOGIN: "/auth/login",
-    REGISTER: "/auth/register",
+    LOGIN: "auth/login",
+    REGISTER: "auth/register",
   }
 }
