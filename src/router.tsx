@@ -1,5 +1,6 @@
 import { createBrowserRouter, type RouteObject } from "react-router-dom";
 import LoginPage from "./pages/login/LoginPage";
+import RegisterPage from "./pages/register/RegisterPage";
 
 const routers: RouteObject[] = [
   {
@@ -8,7 +9,7 @@ const routers: RouteObject[] = [
   },
   {
     path: "/register",
-    element: <div>Register </div>,
+    element: <RegisterPage />,
   },
 ];
 

@@ -32,6 +32,7 @@ export function useYupForm<T extends yup.AnyObjectSchema>({
 
   const submit = handleSubmit(async (values) => {
     await onSubmit(values);
+    reset();
   });
 
   const getError = (fieldName: keyof FormValues): string | undefined => {
