@@ -6,13 +6,24 @@ import Input from "../../../atoms/input";
 import Button from "../../../atoms/button";
 import { schemaFormRegister } from "./schema";
 import ContainerAuthLottie from "../../../organisms/container-auth-lottie/ContainerAuthLottie";
+import { setTokenInCookie } from "../../../utils/app.utils";
+import { SSOCOOKIES } from "../../../constants/cookies.const";
 
 const FormRegister = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, getError } = useYupForm({
     schema: schemaFormRegister,
-    onSubmit: (values) => {
-      registerSvcCaller.execute(values);
+    onSubmit: async (values) => {
+      try {
+        const res = await registerSvcCaller.execute(values);
+        const token = res.data?.accessToken
+        if (token) {
+          setTokenInCookie(SSOCOOKIES.ACCESS_TOKEN, token);
+        }
+        navigate("/dashboard");
+      } catch (error) {
+        console.error("Register Error: ", error);
+      }
     },
   });
 

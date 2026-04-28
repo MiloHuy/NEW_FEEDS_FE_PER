@@ -5,15 +5,25 @@ import Typography from "../../../atoms/typography";
 import Input from "../../../atoms/input";
 import Button from "../../../atoms/button";
 import { schemaFormLogin } from "./schema";
-import { getLottieUrl } from "../../../assets/utils";
 import ContainerAuthLottie from "../../../organisms/container-auth-lottie/ContainerAuthLottie";
+import { setTokenInCookie } from "../../../utils/app.utils";
+import { SSOCOOKIES } from "../../../constants/cookies.const";
 
 const FormLogin= ()=> {
   const navigate = useNavigate();
   const { register, handleSubmit, getError } = useYupForm({
     schema: schemaFormLogin,
-    onSubmit: (values) => {
-      loginSvcCaller.execute(values)
+    onSubmit: async (values) => {
+      try {
+        const res = await loginSvcCaller.execute(values);
+        const token = res.data?.accessToken
+        if (token) {
+          setTokenInCookie(SSOCOOKIES.ACCESS_TOKEN, token);
+          navigate("/dashboard");
+        }
+      } catch (error) {
+        console.error("Login Error: ", error)
+      }
     }
   });
 

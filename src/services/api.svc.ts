@@ -40,7 +40,7 @@ export class RxAxiosCaller<
     }
   }
 
-  async execute(variables?: TVariables, config?: AxiosRequestConfig): Promise<TData> {
+  async execute(variables?: TVariables, config?: AxiosRequestConfig): Promise<TApiResult<TData>> {
     this.abort()
 
     this.abortController = new AbortController();
@@ -63,7 +63,12 @@ export class RxAxiosCaller<
         : (response.data as unknown as TData);
 
       this.subject.next({ status: "success", data: parsed });
-      return parsed;
+
+      return {
+        status: "success",
+        data: parsed,
+      };
+
     } catch (error) {
 
       this.subject.next({ status: "error", message: 'Error call api' });

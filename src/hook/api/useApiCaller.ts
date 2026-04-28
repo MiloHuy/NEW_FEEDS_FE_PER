@@ -18,7 +18,7 @@ interface UseApiCallerReturn<TData, TVariables> {
     vars?: TVariables,
     onSuccess?: (data: TData) => void,
     onError?: (err: unknown) => void
-  ) => Promise<TData | null>;
+  ) => Promise<TApiResult<TData> | null>;
   abort: () => void;
   reset: () => void;
 }
@@ -55,15 +55,17 @@ export function useApiCaller<TData, TVariables = undefined, TRawResponse = unkno
     vars?: TVariables,
     onSuccess?: (data: TData) => void,
     onError?: (err: unknown) => void
-  ): Promise<TData | null> => {
+  ): Promise<TApiResult<TData> | null> => {
     if (!apiRef.current) return null;
     try {
       const res = await apiRef.current.execute(vars);
-      onSuccess?.(res);
+      if (res.status === "success" && res && res.data !== undefined) {
+        onSuccess?.(res.data as TData);
+      }
       return res;
     } catch (err) {
       onError?.(err);
-      return null;
+      return { status: "error", message: "Call failed" };
     }
   }, []);
 

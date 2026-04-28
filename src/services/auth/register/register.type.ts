@@ -5,7 +5,6 @@ export interface IRequestRegister {
 }
 
 export interface IResponseRegister {
-  id: string;
-  username: string;
-  email: string;
+  refreshToken: string;
+  accessToken: string;
 }
