@@ -1,7 +1,8 @@
 :root {
   /* Base */
-  --color-bg: 15 15 15;
-  --color-text: 255 255 255;
+  --white: 255 255 255;
+  --black: 0 0 0;
+  --color-text: 0 0 0;
   --color-muted: 144 144 144;
 
   /* Primary */
@@ -51,4 +52,12 @@
   --color-neutral-300: 155 167 232;
   --color-neutral-400: 119 129 181;
   --color-neutral-500: 0 11 67;
+
+  /* Tertiary */
+  --color-tertiary-50: 204 245 243;
+  --color-tertiary-100: 153 234 230;
+  --color-tertiary-200: 89 218 213;
+  --color-tertiary-300: 32 199 193;
+  --color-tertiary-400: 0 172 166;
+  --color-tertiary-500: 0 138 133;
 }

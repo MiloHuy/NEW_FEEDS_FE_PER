@@ -2,13 +2,14 @@ import React, { createElement } from 'react'
 
 interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'tertiary' | 'success'
+  variant?: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success'
   color?: 'default' | 'success' | 'warning' | 'error'
 
   iconOnly?: boolean
 }
 
 const VARIANT_CLASS = {
+  default: 'btn-default',
   primary: 'btn-primary',
   secondary: 'btn-secondary',
   tertiary: 'btn-tertiary',
@@ -23,7 +24,7 @@ const COLOR_CLASS = {
 } as const
 
 const Button: React.FC<IButtonProps> = ({
-  variant = 'primary',
+  variant = 'default',
   color = 'default',
   className,
   children,

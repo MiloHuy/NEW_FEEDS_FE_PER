@@ -1,6 +1,7 @@
 import { BehaviorSubject } from "rxjs";
 import type { AxiosInstance, AxiosRequestConfig } from "axios";
 import type { TApiResult, THttpMethod } from "./type";
+import axiosInstance from "./axios-instance";
 
 export class RxAxiosCaller<
   TData,
@@ -9,12 +10,13 @@ export class RxAxiosCaller<
 > {
   private subject = new BehaviorSubject<TApiResult<TData>>({ status: "idle" });
   private abortController: AbortController | null = null;
+  private instance: AxiosInstance = axiosInstance;
 
   constructor(
-    private instance: AxiosInstance,
+
     private endpoint: string,
     private method: THttpMethod = "GET",
-    private parser?: (raw: TRawResponse) => TData
+    private parser?: (raw: TRawResponse) => TData,
   ) { }
 
   get result$() {
@@ -38,7 +40,7 @@ export class RxAxiosCaller<
     }
   }
 
-  async execute(variables?: TVariables, config?: AxiosRequestConfig) {
+  async execute(variables?: TVariables, config?: AxiosRequestConfig): Promise<TData> {
     this.abort()
 
     this.abortController = new AbortController();

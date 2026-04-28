@@ -62,6 +62,15 @@ export default {
           400: 'rgb(var(--color-neutral-400) / 1)',
           500: 'rgb(var(--color-neutral-500) / 1)',
         },
+
+        tertiary: {
+          50: 'rgb(var(--color-tertiary-50) / 1)',
+          100: 'rgb(var(--color-tertiary-100) / 1)',
+          200: 'rgb(var(--color-tertiary-200) / 1)',
+          300: 'rgb(var(--color-tertiary-300) / 1)',
+          400: 'rgb(var(--color-tertiary-400) / 1)',
+          500: 'rgb(var(--color-tertiary-500) / 1)',
+        },
       },
     },
   },

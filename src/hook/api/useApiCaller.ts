@@ -2,15 +2,15 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import type { RxAxiosCaller } from "../../services/api.svc";
 import type { TApiResult } from "../../services/type";
 
+
 interface UseApiCallerOptions<TVariables> {
-  auto?: boolean;
   variables?: TVariables;
 }
 
 interface UseApiCallerReturn<TData, TVariables> {
   status: TApiResult<TData>["status"];
   data: TApiResult<TData>["data"] | null;
-  error: TApiResult<TData>["message"] | null
+  error: TApiResult<TData>["message"] | null;
   isLoading: boolean;
   isSuccess: boolean;
   isError: boolean;
@@ -28,14 +28,16 @@ export function useApiCaller<TData, TVariables = undefined, TRawResponse = unkno
   api: RxAxiosCaller<TData, TVariables, TRawResponse> | null,
   options: UseApiCallerOptions<TVariables> = {}
 ): UseApiCallerReturn<TData, TVariables> {
-  const { auto = false, variables } = options;
 
   const [result, setResult] = useState<TApiResult<TData>>(
     () => api?.getResult() ?? { status: "idle" }
   );
 
   const apiRef = useRef(api);
+  const variablesRef = useRef(options.variables);
+
   apiRef.current = api;
+  variablesRef.current = options.variables;
 
   useEffect(() => {
     if (!api) return;
@@ -44,8 +46,8 @@ export function useApiCaller<TData, TVariables = undefined, TRawResponse = unkno
   }, [api]);
 
   useEffect(() => {
-    if (auto && apiRef.current) {
-      void apiRef.current.execute(variables);
+    if (apiRef.current) {
+      void apiRef.current.execute(variablesRef.current);
     }
   }, []);
 
@@ -74,15 +76,5 @@ export function useApiCaller<TData, TVariables = undefined, TRawResponse = unkno
   const isSuccess = result.status === "success";
   const isError = result.status === "error";
 
-  return {
-    status: result.status,
-    data,
-    error,
-    isLoading,
-    isSuccess,
-    isError,
-    execute,
-    abort,
-    reset
-  };
+  return { status: result.status, data, error, isLoading, isSuccess, isError, execute, abort, reset };
 }

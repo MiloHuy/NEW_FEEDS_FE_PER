@@ -2,6 +2,10 @@
   .btn {
     @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium;
 
+    &-default {
+      @apply bg-white text-text border border-gray-200;
+    }
+
     &-primary {
       @apply bg-primary-400 text-text hover:bg-primary-500;
     }
@@ -16,6 +20,10 @@
 
     &-error {
       @apply bg-error-400 text-text hover:bg-error-500;
+    }
+
+    &-tertiary {
+      @apply bg-tertiary-400 text-text hover:bg-tertiary-500;
     }
   }
 }
