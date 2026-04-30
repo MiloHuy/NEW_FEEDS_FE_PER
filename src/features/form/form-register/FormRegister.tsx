@@ -16,7 +16,7 @@ const FormRegister = () => {
     onSubmit: async (values) => {
       try {
         const res = await registerSvcCaller.execute(values);
-        const token = res.data?.accessToken
+        const token = res?.accessToken
         if (token) {
           setTokenInCookie(SSOCOOKIES.ACCESS_TOKEN, token);
         }

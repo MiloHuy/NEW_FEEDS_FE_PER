@@ -6,6 +6,8 @@
 @import './style/components/atoms/button.scss';
 @import './style/components/atoms/input.scss';
 @import './style/components/atoms/badge.scss';
+@import './style/components/atoms/base-card.scss';
+@import './style/components/atoms/file-upload.scss';
 
 @tailwind base;
 @tailwind components;

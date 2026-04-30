@@ -5,6 +5,8 @@ export interface IRequestRegister {
 }
 
 export interface IResponseRegister {
-  refreshToken: string;
-  accessToken: string;
+  data: {
+    refreshToken: string;
+    accessToken: string;
+  }
 }

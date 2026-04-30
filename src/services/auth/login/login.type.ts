@@ -4,6 +4,8 @@ export interface IRequestLogin {
 }
 
 export interface IResponseLogin {
-  accessToken: string;
-  refreshToken: string;
+  data: {
+    accessToken: string;
+    refreshToken: string;
+  }
 }

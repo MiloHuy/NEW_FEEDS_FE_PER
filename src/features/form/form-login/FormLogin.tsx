@@ -16,7 +16,7 @@ const FormLogin= ()=> {
     onSubmit: async (values) => {
       try {
         const res = await loginSvcCaller.execute(values);
-        const token = res.data?.accessToken
+        const token = res?.accessToken
         if (token) {
           setTokenInCookie(SSOCOOKIES.ACCESS_TOKEN, token);
           navigate("/dashboard");
@@ -33,15 +33,24 @@ const FormLogin= ()=> {
       <Typography as="p">Sign in to continue</Typography>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
-        <div>
-          <Input {...register("username")} placeholder="Username" />
-          {getError("username") && <p className="text-red-500 text-sm mt-1">{getError("username")}</p>}
-        </div>
-
-        <div>
-          <Input {...register("password")} type="password" placeholder="••••••••" />
-          {getError("password") && <p className="text-red-500 text-sm mt-1">{getError("password")}</p>}
-        </div>
+        <Input 
+          {...register("username")} 
+          placeholder="Username" 
+          helperText={getError("username")} 
+          state={
+            getError("username") ? "error" : "default"
+          }
+        />
+        
+        <Input 
+          {...register("password")} 
+          type="password" 
+          placeholder="••••••••" 
+          helperText={getError("password")} 
+          state={
+            getError("password") ? "error" : "default"
+          }
+        />
 
         <div className="flex gap-2">
           <Button type="submit" className="text-white w-full" variant="primary">

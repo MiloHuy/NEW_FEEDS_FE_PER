@@ -1,0 +1,136 @@
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+
+  .input__field {
+    cursor: pointer;
+    caret-color: transparent;
+    user-select: none;
+  }
+
+  &--disabled {
+    .input__field {
+      cursor: not-allowed;
+    }
+  }
+
+  &__clear {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(var(--color-neutral-200));
+    color: rgb(var(--color-neutral-500));
+    font-size: 10px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: rgb(var(--color-error-100));
+      color: rgb(var(--color-error-500));
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(var(--color-primary-300));
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__meta {
+    margin: 0;
+    font-size: 12px;
+    color: rgb(var(--color-neutral-400));
+    padding-left: 2px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 2px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 10px;
+    border-radius: 8px;
+    background: rgb(var(--color-neutral-50));
+    border: 0.5px solid rgb(var(--color-neutral-100));
+  }
+
+  &__item-thumb {
+    width: 36px;
+    height: 36px;
+    border-radius: 4px;
+    object-fit: cover;
+    flex-shrink: 0;
+    background: rgb(var(--color-neutral-100));
+  }
+
+  &__item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__item-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(var(--color-neutral-500));
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__item-size {
+    font-size: 11px;
+    color: rgb(var(--color-neutral-400));
+  }
+
+  &__item-remove {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(var(--color-neutral-200));
+    color: rgb(var(--color-neutral-500));
+    font-size: 10px;
+    cursor: pointer;
+    padding: 0;
+    transition: background 0.15s, color 0.15s;
+
+    &:hover {
+      background: rgb(var(--color-error-100));
+      color: rgb(var(--color-error-500));
+    }
+
+    &:focus-visible {
+      outline: 2px solid rgb(var(--color-primary-300));
+      outline-offset: 2px;
+    }
+  }
+}
