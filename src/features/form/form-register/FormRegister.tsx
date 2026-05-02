@@ -5,7 +5,7 @@ import Typography from "../../../atoms/typography";
 import Input from "../../../atoms/input";
 import Button from "../../../atoms/button";
 import { schemaFormRegister } from "./schema";
-import ContainerAuthLottie from "../../../organisms/container-auth-lottie/ContainerAuthLottie";
+import ContainerAuthLottie from "../../../molecules/container-auth-lottie/ContainerAuthLottie";
 import { setTokenInCookie } from "../../../utils/app.utils";
 import { SSOCOOKIES } from "../../../constants/cookies.const";
 

@@ -1,7 +1,11 @@
 export type BoxPadding = "none" | "xs" | "sm" | "md" | "lg" | "xl";
+
 export type BoxRadius = "none" | "sm" | "md" | "lg" | "xl" | "full";
+
 export type BoxShadow = "none" | "sm" | "md" | "lg";
+
 export type BoxVariant = "default" | "outlined" | "filled" | "ghost";
+
 export type BoxAs = "div" | "section" | "article" | "main" | "aside" | "header" | "footer";
 
 type BoxOwnProps<T extends BoxAs> = {
