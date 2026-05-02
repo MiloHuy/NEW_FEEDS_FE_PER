@@ -1,0 +1,90 @@
+@use "sass:map";
+
+$avatar-sizes: (
+  "xs": (size: 24px, font: 10px, status: 6px),
+  "sm": (size: 32px, font: 12px, status: 8px),
+  "md": (size: 40px, font: 14px, status: 10px),
+  "lg": (size: 52px, font: 18px, status: 12px),
+  "xl": (size: 64px, font: 22px, status: 14px),
+);
+
+$avatar-colors: (
+  "indigo": (bg: var(--color-primary-100), color: var(--color-primary-500)),
+  "teal": (bg: var(--color-tertiary-100), color: var(--color-tertiary-500)),
+  "amber": (bg: var(--color-secondary-100), color: var(--color-secondary-500)),
+  "rose": (bg: var(--color-error-100), color: var(--color-error-500)),
+  "violet": (bg: 220 200 255, color: 109 30 220),
+  "emerald": (bg: var(--color-success-100), color: var(--color-success-500)),
+);
+
+.avatar {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: rgb(var(--color-neutral-100));
+  user-select: none;
+  vertical-align: middle;
+
+  &--circle {
+    border-radius: 9999px;
+  }
+
+  &--square {
+    border-radius: 8px;
+  }
+
+  @each $name, $vals in $avatar-sizes {
+    &--#{$name} {
+      width: map.get($vals, size);
+      height: map.get($vals, size);
+      font-size: map.get($vals, font);
+
+      .avatar__status {
+        width: map.get($vals, status);
+        height: map.get($vals, status);
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+  }
+
+  &__fallback {
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    line-height: 1;
+    color: inherit;
+  }
+
+  &__status {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-radius: 9999px;
+    border: 2px solid rgb(var(--white));
+    box-sizing: content-box;
+
+    &--online {
+      background: rgb(var(--color-success-400));
+    }
+
+    &--offline {
+      background: rgb(var(--color-neutral-300));
+    }
+
+    &--busy {
+      background: rgb(var(--color-error-400));
+    }
+
+    &--away {
+      background: rgb(var(--color-warning-400));
+    }
+  }
+}

@@ -1,0 +1,78 @@
+$box-padding: (
+  "none": 0,
+  "xs": 4px,
+  "sm": 8px,
+  "md": 16px,
+  "lg": 24px,
+  "xl": 32px,
+);
+
+$box-radius: (
+  "none": 0,
+  "sm": 4px,
+  "md": 8px,
+  "lg": 12px,
+  "xl": 20px,
+  "full": 9999px,
+);
+
+$box-shadow: (
+  "none": none,
+  "sm": (0 1px 3px rgb(0 0 0 / 0.06), 0 1px 2px rgb(0 0 0 / 0.04)),
+  "md": (0 4px 12px rgb(0 0 0 / 0.08), 0 2px 4px rgb(0 0 0 / 0.04)),
+  "lg": (0 10px 32px rgb(0 0 0 / 0.10), 0 4px 8px rgb(0 0 0 / 0.06)),
+);
+
+.box {
+  box-sizing: border-box;
+  position: relative;
+
+  @each $name, $val in $box-padding {
+    &--padding-#{$name} {
+      padding: $val;
+    }
+  }
+
+  @each $name, $val in $box-radius {
+    &--radius-#{$name} {
+      border-radius: $val;
+    }
+  }
+
+  @each $name, $val in $box-shadow {
+    &--shadow-#{$name} {
+      box-shadow: $val;
+    }
+  }
+
+  &--default {
+    background: rgb(var(--white));
+    border: 0.5px solid rgb(var(--color-neutral-100));
+  }
+
+  &--outlined {
+    background: transparent;
+    border: 1.5px solid rgb(var(--color-neutral-200));
+  }
+
+  &--filled {
+    background: rgb(var(--color-neutral-50));
+    border: none;
+  }
+
+  &--ghost {
+    background: transparent;
+    border: none;
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--centered {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}

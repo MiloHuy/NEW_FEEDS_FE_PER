@@ -8,9 +8,9 @@
 @import './style/components/atoms/badge.scss';
 @import './style/components/atoms/base-card.scss';
 @import './style/components/atoms/file-upload.scss';
+@import './style/components/atoms/box.scss';
+@import './style/components/atoms/avatar.scss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-
