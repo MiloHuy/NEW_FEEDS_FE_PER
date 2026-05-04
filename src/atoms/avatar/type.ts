@@ -4,6 +4,26 @@ export type AvatarShape = "circle" | "square";
 
 export type AvatarStatus = "online" | "offline" | "busy" | "away";
 
+export const SIZE_CLASS: Record<AvatarSize, string> = {
+  xs: "avatar--xs",
+  sm: "avatar--sm",
+  md: "avatar--md",
+  lg: "avatar--lg",
+  xl: "avatar--xl",
+} as const;
+
+export const SHAPE_CLASS: Record<AvatarShape, string> = {
+  circle: "avatar--circle",
+  square: "avatar--square",
+} as const;
+
+export const STATUS_CLASS: Record<AvatarStatus, string> = {
+  online: "avatar__status--online",
+  offline: "avatar__status--offline",
+  busy: "avatar__status--busy",
+  away: "avatar__status--away",
+} as const;
+
 export interface AvatarProps {
   src?: string;
   alt?: string;

@@ -2,6 +2,8 @@
 @import './style/base/_global.scss';
 @import './style/themes/_themes.scss';
 @import './style/abstracts/_colors.scss';
+@import './style/abstracts/_spacing.scss';
+@import './style/abstracts/_typography.scss';
 
 @import './style/components/atoms/button.scss';
 @import './style/components/atoms/input.scss';

@@ -58,14 +58,12 @@ export function useApiCaller<TData, TVariables = undefined, TRawResponse = unkno
   ): Promise<TApiResult<TData> | null> => {
     if (!apiRef.current) return null;
     try {
-      const res = await apiRef.current.execute(vars);
-      if (res.status === "success" && res && res.data !== undefined) {
-        onSuccess?.(res.data as TData);
-      }
-      return res;
+      const data = await apiRef.current.execute(vars);
+      onSuccess?.(data);
+      return { status: "success", data };
     } catch (err) {
       onError?.(err);
-      return { status: "error", message: "Call failed" };
+      return { status: "error", message: err instanceof Error ? err.message : 'Error' };
     }
   }, []);
 

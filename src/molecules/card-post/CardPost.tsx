@@ -2,7 +2,7 @@ import type { FC } from "react";
 import BoxContainer from "../../atoms/box";
 import BaseCard from "../../atoms/base-card";
 import Button from "../../atoms/button";
-// import Avatar from "../atoms/Avatar"; 
+import Avatar from "../../atoms/avatar";
 
 interface CardPostProps {
   author: {
@@ -31,9 +31,13 @@ const CardPost: FC<CardPostProps> = ({ author, content, image, stats }) => {
       <BaseCard
         header={
           <div className="card-post__header-inner">
-            <div className="avatar avatar--md avatar--circle">
-               {author.avatarUrl ? <img src={author.avatarUrl} alt="" /> : <span>{author.name[0]}</span>}
-            </div>
+            <Avatar
+              src={author.avatarUrl}
+              alt={author.name}
+              fallback={author.name}
+              size="md"
+              shape="circle"
+            />
             <div className="card-post__info">
               <h4 className="card-post__name">{author.name}</h4>
               <span className="card-post__time">{author.time}</span>

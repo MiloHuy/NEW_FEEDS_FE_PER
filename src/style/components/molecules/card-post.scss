@@ -52,14 +52,20 @@
 
     &__btns {
       display: flex;
+      width: 100%;
+      border-top: 0.5px solid var(--color-border-tertiary);
     }
 
     &__btn {
       flex: 1;
-      padding: 10px;
+      padding: 12px;
       background: none;
       border: none;
       cursor: pointer;
+
+      &:not(:first-child) {
+        border-left: 0.5px solid var(--color-border-tertiary);
+      }
 
       &:hover {
         background: var(--color-bg-secondary);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import clsx from "clsx";
-import type { AvatarFallbackProps, AvatarImageProps, AvatarProps } from "./type";
+import { SHAPE_CLASS, SIZE_CLASS, STATUS_CLASS, type AvatarFallbackProps, type AvatarImageProps, type AvatarProps } from "./type";
 import { getFallbackColor, getInitials } from "./utils";
 
 function AvatarImage({ src, alt, onLoadingStatusChange, className, ...props }: AvatarImageProps) {
@@ -60,8 +60,8 @@ function AvatarRoot({
     <span
       className={clsx(
         "avatar",
-        `avatar--${size}`,
-        `avatar--${shape}`,
+        SIZE_CLASS[size],
+        SHAPE_CLASS[shape],
         showFallback && colorClass,
         className
       )}
@@ -83,7 +83,7 @@ function AvatarRoot({
 
       {status && (
         <span
-          className={clsx("avatar__status", `avatar__status--${status}`)}
+          className={clsx("avatar__status", STATUS_CLASS[status])}
           aria-label={status}
         />
       )}

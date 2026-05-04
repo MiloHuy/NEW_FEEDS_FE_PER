@@ -14,4 +14,15 @@ $font-bold: 700;
 :root {
   --font-sans: 'Quicksand', sans-serif;
   --border-radius-lg: 12px;
+
+  /* Font Sizes */
+  --text-2xs: 10px;
+  --text-xs-2: 11px;
+  --text-xs: 12px;
+  --text-sm-2: 13px;
+  --text-sm: 14px;
+  --text-md-2: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
 }

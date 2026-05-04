@@ -1,0 +1,16 @@
+$avatar-sizes: (
+  "xs": (size: 24px, font: 10px, status: 6px),
+  "sm": (size: 32px, font: 12px, status: 8px),
+  "md": (size: 40px, font: 14px, status: 10px),
+  "lg": (size: 52px, font: 18px, status: 12px),
+  "xl": (size: 64px, font: 22px, status: 14px),
+);
+
+$avatar-colors: (
+  "primary": (bg: var(--color-primary-100), color: var(--color-primary-500)),
+  "secondary": (bg: var(--color-secondary-100), color: var(--color-secondary-500)),
+  "tertiary": (bg: var(--color-tertiary-100), color: var(--color-tertiary-500)),
+  "success": (bg: var(--color-success-100), color: var(--color-success-500)),
+  "warning": (bg: var(--color-warning-100), color: var(--color-warning-500)),
+  "error": (bg: var(--color-error-100), color: var(--color-error-500)),
+);
