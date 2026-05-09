@@ -5,5 +5,6 @@ export const API_POST_ROUTERS = {
   },
   POST: {
     CREATE: "",
+    LIKE: "/{id}/like"
   }
 }

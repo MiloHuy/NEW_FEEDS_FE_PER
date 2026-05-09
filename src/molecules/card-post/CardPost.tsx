@@ -4,7 +4,10 @@ import BaseCard from "../../atoms/base-card";
 import Button from "../../atoms/button";
 import Avatar from "../../atoms/avatar";
 
+import { likePostSvcCaller } from "../../services/posts/like-post/like-post.svc";
+
 interface CardPostProps {
+  id: string;
   author: {
     name: string;
     avatarUrl?: string;
@@ -19,7 +22,11 @@ interface CardPostProps {
   };
 }
 
-const CardPost: FC<CardPostProps> = ({ author, content, image, stats }) => {
+const CardPost: FC<CardPostProps> = ({ id, author, content, image, stats }) => {
+  const handleLike = () => {
+    likePostSvcCaller.execute({ id });
+  };
+  
   return (
     <BoxContainer 
       variant="default" 
@@ -59,7 +66,7 @@ const CardPost: FC<CardPostProps> = ({ author, content, image, stats }) => {
         
         actions={
           <div className="card-post__btns">
-            <Button className="card-post__btn">Like</Button>
+            <Button className="card-post__btn" onClick={handleLike}>Like</Button>
             
             <Button className="card-post__btn">Comment</Button>
           </div>

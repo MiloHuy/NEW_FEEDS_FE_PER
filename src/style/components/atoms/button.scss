@@ -1,6 +1,38 @@
 @layer components {
   .btn {
-    @apply inline-flex items-center justify-center rounded-md px-4 py-2 font-medium;
+    @apply inline-flex items-center justify-center rounded-md font-medium transition-all;
+
+    &-sm {
+      @apply px-3 py-1.5 text-xs;
+
+      &.btn-icon {
+        @apply p-1.5;
+      }
+    }
+
+    &-md {
+      @apply px-4 py-2 text-sm;
+
+      &.btn-icon {
+        @apply p-2;
+      }
+    }
+
+    &-lg {
+      @apply px-5 py-2.5 text-base;
+
+      &.btn-icon {
+        @apply p-2.5;
+      }
+    }
+
+    &-xl {
+      @apply px-6 py-3 text-lg;
+
+      &.btn-icon {
+        @apply p-3;
+      }
+    }
 
     &-default {
       @apply bg-white text-text border border-gray-200;

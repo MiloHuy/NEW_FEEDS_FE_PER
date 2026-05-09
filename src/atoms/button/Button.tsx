@@ -4,6 +4,7 @@ interface IButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'default' | 'primary' | 'secondary' | 'tertiary' | 'success'
   color?: 'default' | 'success' | 'warning' | 'error'
+  size?: 'sm' | 'md' | 'lg' | 'xl'
 
   iconOnly?: boolean
 }
@@ -23,9 +24,17 @@ const COLOR_CLASS = {
   error: 'btn-error',
 } as const
 
+const SIZE_CLASS = {
+  sm: 'btn-sm',
+  md: 'btn-md',
+  lg: 'btn-lg',
+  xl: 'btn-xl',
+} as const
+
 const Button: React.FC<IButtonProps> = ({
   variant = 'default',
   color = 'default',
+  size = 'md',
   className,
   children,
   iconOnly = false,
@@ -35,6 +44,8 @@ const Button: React.FC<IButtonProps> = ({
     'btn',
     VARIANT_CLASS[variant],
     COLOR_CLASS[color],
+    SIZE_CLASS[size],
+    iconOnly && 'btn-icon',
     className,
   ]
     .filter(Boolean)
@@ -46,9 +57,7 @@ const Button: React.FC<IButtonProps> = ({
       className: classes,
       ...rest,
     },
-    <>
-    {!iconOnly && children}
-    </> 
+    children
   )
 }
 

@@ -1,6 +1,6 @@
 export const API_AUTH_ROUTERS = {
   GET: {
-    ME: "auth/me",
+    ME: "users/me",
   },
   POST: {
     LOGIN: "auth/login",

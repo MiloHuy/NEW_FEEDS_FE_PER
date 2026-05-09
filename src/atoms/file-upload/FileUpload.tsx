@@ -121,7 +121,6 @@ const FileUpload = React.forwardRef<HTMLInputElement, FileUploadProps>(
           readOnly
           disabled={disabled}
           value={displayValue}
-          placeholder="No file chosen"
           state={inputState}
           helperText={
             error ??

@@ -80,10 +80,11 @@ function BaseModalClose({ children, className }: BaseModalCloseProps) {
 export interface BaseModalTriggerProps {
   children: React.ReactNode;
   onClick?: () => void;
+  className?: string;
 }
-function BaseModalTrigger({ children, onClick }: BaseModalTriggerProps) {
+function BaseModalTrigger({ children, onClick, className }: BaseModalTriggerProps) {
   return (
-    <span onClick={onClick} style={{ cursor: "pointer", display: "inline-flex" }}>
+    <span onClick={onClick} className={className} style={{ cursor: "pointer", display: "inline-flex" }}>
       {children}
     </span>
   );
@@ -98,6 +99,15 @@ export interface BaseModalProps {
   children: React.ReactNode;
   className?: string;
 }
+
+const SIZE_MODAL_MAPPING: Record<ModalSize, string>  = {
+  xs: "base-modal__panel--xs",
+  sm: "base-modal__panel--sm",
+  md: "base-modal__panel--md",
+  lg: "base-modal__panel--lg",
+  xl: "base-modal__panel--xl",
+  full: "base-modal__panel--full",
+};
 
 function BaseModalRoot({
   open,
@@ -152,7 +162,7 @@ function BaseModalRoot({
         <div
           ref={panelRef}
           tabIndex={-1}
-          className={clsx("base-modal__panel", `base-modal__panel--${size}`, className)}
+          className={clsx("base-modal__panel", SIZE_MODAL_MAPPING[size], className)}
           onClick={(e) => e.stopPropagation()}
         >
           {children}

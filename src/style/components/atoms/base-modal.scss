@@ -12,7 +12,8 @@
     }
 
     &__panel {
-      @apply pointer-events-auto relative flex flex-col w-full max-h-[calc(100dvh-32px)] bg-white rounded-[14px] border-[0.5px] border-neutral-100 shadow-[0_20px_60px_rgba(0,0,0,0.14),0_4px_16px_rgba(0,0,0,0.08)] outline-none overflow-hidden;
+      @apply pointer-events-auto relative flex flex-col w-full max-h-[calc(100dvh-32px)] bg-white rounded-[14px] border-[0.5px] border-neutral-100 outline-none overflow-hidden;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.14), 0 4px 16px rgba(0, 0, 0, 0.08);
       animation: modal-panel-in 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 
       @each $name, $width in $modal-sizes {

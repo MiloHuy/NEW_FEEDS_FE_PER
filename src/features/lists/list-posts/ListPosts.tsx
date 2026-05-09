@@ -73,6 +73,7 @@ const ListPost = ()=>{
             MOCK_POSTS.map((post)=>{
               return <CardPost
                 key={post.id}
+                id={post.id}
                 author={post.author}
                 content={post.content}
                 image={post.image}
