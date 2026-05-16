@@ -3,7 +3,7 @@ import type { EStatusPost } from "../type"
 export interface ICreatePostRequest {
   user_id: string
   content: string
-  mediaUrl: string
+  mediaUrl?: string
   status: EStatusPost
 }
 

@@ -33,20 +33,31 @@ const FormRegister = () => {
       <Typography as="p">Join us tonight</Typography>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
-        <div>
-          <Input {...register("username")} placeholder="Username" />
-          {getError("username") && <p className="text-red-500 text-sm mt-1">{getError("username")}</p>}
-        </div>
+        <Input 
+          {...register("username")} 
+          placeholder="Username" 
+          helperText={getError("username")} 
+          state={
+            getError("username") ? "error" : "default"
+          } 
+        />
 
-        <div>
-          <Input {...register("email")} placeholder="you@example.com" />
-          {getError("email") && <p className="text-red-500 text-sm mt-1">{getError("email")}</p>}
-        </div>
+        <Input 
+          {...register("email")} 
+          placeholder="you@example.com" 
+          helperText={getError("email")} 
+          state={
+            getError("email") ? "error" : "default"
+        } />
 
-        <div>
-          <Input {...register("password")} type="password" placeholder="••••••••" />
-          {getError("password") && <p className="text-red-500 text-sm mt-1">{getError("password")}</p>}
-        </div>
+        <Input 
+          {...register("password")} 
+          type="password" 
+          placeholder="••••••••" 
+          helperText={getError("password")} 
+          state={
+            getError("password") ? "error" : "default"
+        } />
 
         <div className="flex flex-col gap-2">
           <Button type="submit" className="text-white w-full" variant="primary">

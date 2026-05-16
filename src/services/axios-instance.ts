@@ -12,7 +12,6 @@ const axiosInstance = axios.create({
 })
 
 axiosInstance.defaults.headers['Accept'] = 'application/json'
-axiosInstance.defaults.headers['Content-Type'] = 'application/json'
 
 axiosInstance.interceptors.request.use(
   (config) => {

@@ -1,12 +1,15 @@
 import { formatBytes } from "../../utils/format.utils";
 import Button from "../button";
+import type { FileUploadStatus } from "./type";
 
 interface FileItemProps {
   file: File;
   onRemove: (file: File) => void;
+  status: FileUploadStatus
+  uploadError?: string
 }
 
-export function FileItem({ file, onRemove }: FileItemProps) {
+export function FileItem({ file, onRemove, status, uploadError }: FileItemProps) {
   const preview = URL.createObjectURL(file);
 
   return (

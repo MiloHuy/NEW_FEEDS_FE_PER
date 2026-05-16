@@ -53,7 +53,7 @@ export const MOCK_POSTS = [
 
 
 const ListPost = ()=>{
-  const {data, isLoading} = useApiResult(listPostsCaller)
+  const {data, isLoading, error, isError} = useApiResult(listPostsCaller)
 
   useEffect(()=>{
     listPostsCaller.execute({
@@ -64,7 +64,7 @@ const ListPost = ()=>{
 
   if (isLoading) return <div>Loading...</div>;
   
-  //  if (isError)   return <div>Error: {error}</div>;
+  if (isError)   return <div>Error: {error}</div>;
   
   if (!data)     
     return (

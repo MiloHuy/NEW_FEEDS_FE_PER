@@ -12,13 +12,14 @@ export default function DashboardPage() {
       <Typography as="p">Welcome to your social network!</Typography>
 
       <ModalFileUpload
+        title="Create a new post"
         trigger={
           <Button iconOnly size="md">
             <CirclePlus size={30}/>
           </Button>
         }
-        onUpload={(files) => {
-          console.log("Uploaded files:", files);
+        onSuccess={() => {
+          console.log("Post created successfully!");
         }}
       />
 
