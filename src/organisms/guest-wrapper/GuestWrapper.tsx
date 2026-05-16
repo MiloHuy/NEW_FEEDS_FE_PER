@@ -5,7 +5,7 @@ import { SSOCOOKIES } from "../../constants/cookies.const";
 import { useApiResult } from "../../hook/api/useApiResult";
 import { meSvcCaller } from "../../services/auth/me/me.svc";
 
-const AuthWrapper: React.FC = () => {
+const GuestWrapper: React.FC = () => {
   const token = getAccessTokenFromCookie(SSOCOOKIES.ACCESS_TOKEN);
   const { isLoading, isSuccess, isIdle } = useApiResult(meSvcCaller);
 
@@ -15,23 +15,21 @@ const AuthWrapper: React.FC = () => {
     }
   }, [token, isIdle]);
 
-  if (!token) {
-    return <Navigate to="/" replace />;
-  }
+  if (token) {
+    if (isLoading || isIdle) {
+      return (
+        <div className="flex items-center justify-center h-screen">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary-500"></div>
+        </div>
+      );
+    }
 
-  if (isLoading || isIdle) {
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2"></div>
-      </div>
-    );
-  }
-
-  if (!isSuccess) {
-    return <Navigate to="/" replace />;
+    if (isSuccess) {
+      return <Navigate to="/dashboard" replace />;
+    }
   }
 
   return <Outlet />;
 };
 
-export default AuthWrapper;
+export default GuestWrapper;
